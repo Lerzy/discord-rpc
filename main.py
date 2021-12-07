@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 import subprocess
 from rpc import RPCRunner
 
-sg.theme('DarkAmber')
+sg.theme('Black')
 
 
 layout = [  
