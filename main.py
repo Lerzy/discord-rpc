@@ -1,5 +1,4 @@
 import PySimpleGUI as sg
-import subprocess
 from rpc import RPCRunner
 
 sg.theme('Black')
@@ -47,11 +46,13 @@ while True:
     if event == sg.WIN_CLOSED or event == 'Cancel': 
         break
 
-    if values[7] and values[10] == True:
-        buttons = [{"label": values[8], "url": values[9]}, {"label": values[11], "url": values[12]}]
-    elif values[7] or values[10] == True:
-        buttons = [{"label": values[8] if values[7] == True else values[11], "url": values[9] if values[7] == True else values[12]}]
+    if event == "Run RPC":
 
-    RPCRunner(values[0], values[1], values[2], values[3], values[4], values[5], values[6], buttons)
+        if values[7] and values[10] == True:
+            buttons = [{"label": values[8], "url": values[9]}, {"label": values[11], "url": values[12]}]
+        elif values[7] or values[10] == True:
+            buttons = [{"label": values[8] if values[7] == True else values[11], "url": values[9] if values[7] == True else values[12]}]
+
+        RPCRunner(values[0], values[1], values[2], values[3], values[4], values[5], values[6], buttons)
 
 window.close()
